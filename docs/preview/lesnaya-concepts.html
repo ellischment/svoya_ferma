@@ -1,0 +1,282 @@
+<title>Лесная ягодка: три концепта</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Caveat:wght@500;700&family=Prata&family=Unbounded:wght@500;700&display=swap">
+<style>
+:root{color-scheme:light;
+  --bg:#FBF6EF;--bg2:#F3E6D0;--surf:#FFFFFF;--ink:#3B2A20;--mut:#7A6456;--acc:#B8325A;--on-acc:#FFFFFF;--acc2:#E9C9CF;--line:#E7D9C6;
+  --disp:"Onest",system-ui,sans-serif;--body:"Onest",system-ui,-apple-system,"Segoe UI",sans-serif;--hand:"Caveat","Segoe Print",cursive;
+  --r:18px;--rb:999px;--dispw:700;--displs:-.02em;--dispcase:none;
+}
+[data-c="b"]{color-scheme:dark;--bg:#2A1D17;--bg2:#35251D;--surf:#3F2D24;--ink:#F6EBDD;--mut:#C9B5A2;--acc:#E4567E;--on-acc:#2A1D17;--acc2:#5A2E3A;--line:#503A2F;
+  --disp:"Prata",Georgia,serif;--dispw:400;--displs:0;--r:4px;--rb:4px}
+[data-c="c"]{--bg:#FCEFF1;--bg2:#F7DDE3;--surf:#FFFFFF;--ink:#26244A;--mut:#5E5A7E;--acc:#3D3A8C;--on-acc:#FFFFFF;--acc2:#FFD6DF;--line:#EFCBD3;
+  --disp:"Unbounded","Arial Rounded MT Bold",sans-serif;--dispw:700;--displs:-.01em;--r:28px;--rb:999px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--body)}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.g{padding-inline:16px}.in{max-width:1180px;margin:0 auto}
+h1,h2,h3{font-family:var(--disp);font-weight:var(--dispw);letter-spacing:var(--displs);line-height:1.08;margin:0;text-wrap:balance}
+h2{font-size:clamp(28px,4vw,46px)}
+p{margin:0}
+.mut{color:var(--mut)}
+.hand{font-family:var(--hand);font-weight:500;line-height:1.15}
+.eyebrow{font:600 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+.btn{border:1.5px solid transparent;border-radius:var(--rb);padding:15px 24px;font-weight:600;font-size:16px;min-height:50px;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+.btn.s{padding:9px 14px;font-size:14px;min-height:40px}
+.pri{background:var(--acc);color:var(--on-acc)}
+.out{background:transparent;border-color:var(--ink);color:var(--ink)}
+/* switcher */
+.sw{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:#1b1512;color:#f4ece2}
+.sw .in{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;padding-block:10px}
+.sw b{font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;opacity:.7}
+.sw .tabs{display:flex;gap:6px;flex-wrap:wrap}
+.sw button{background:transparent;border:1px solid #6b5a4f;border-radius:999px;padding:7px 14px;font-size:14px;color:#f4ece2}
+.sw button[aria-pressed="true"]{background:#f4ece2;color:#1b1512;border-color:#f4ece2}
+.sw .nt{font-size:13px;opacity:.8;flex:1 1 280px}
+.sw a{color:#f4ece2}
+/* header */
+header .in{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:16px}
+.logo{font-family:var(--disp);font-weight:var(--dispw);font-size:22px;letter-spacing:var(--displs);display:flex;align-items:baseline;gap:8px}
+.logo .hand{color:var(--acc);font-size:26px}
+nav.m{display:none;gap:24px;font-weight:500;font-size:15px}
+@media(min-width:960px){nav.m{display:flex}}
+.hr{display:flex;gap:10px;align-items:center}
+.tg{font-size:14px;font-weight:600;border:1.5px solid var(--line);border-radius:var(--rb);padding:8px 12px;background:var(--surf)}
+/* photo placeholder */
+.ph{position:relative;border-radius:var(--r);overflow:hidden;background:
+  radial-gradient(120% 90% at 20% 15%,var(--acc2) 0 35%,transparent 36%),
+  radial-gradient(90% 70% at 85% 90%,color-mix(in srgb,var(--acc) 45%,var(--bg2)) 0 40%,transparent 41%),
+  var(--bg2);display:grid;align-content:end;min-height:120px}
+.ph span{margin:12px;background:color-mix(in srgb,var(--bg) 88%,transparent);color:var(--ink);border-radius:8px;padding:6px 10px;font-size:12px;font-weight:500;line-height:1.35;max-width:calc(100% - 24px)}
+.ph .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:color-mix(in srgb,var(--bg) 85%,transparent);display:grid;place-items:center}
+.ph .play::after{content:"";border-left:18px solid var(--acc);border-top:11px solid transparent;border-bottom:11px solid transparent;margin-left:5px}
+/* hero */
+.hero .in{display:grid;gap:28px;padding-block:12px 48px;align-items:center}
+@media(min-width:920px){.hero .in{grid-template-columns:1.05fr .95fr;gap:56px;padding-block:28px 72px}}
+.hero h1{font-size:clamp(38px,6.4vw,74px)}
+[data-c="b"] .hero h1{font-size:clamp(40px,6.8vw,80px);line-height:1.02}
+.hero .lead{font-size:clamp(17px,1.8vw,20px);max-width:44ch}
+.hero .txt{display:grid;gap:20px}
+.hero .ph{aspect-ratio:4/5;max-width:100%}
+.drop{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;background:var(--surf);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px}
+.drop .t{font-variant-numeric:tabular-nums;font-weight:700;font-size:22px;color:var(--acc)}
+.drop small{display:block;color:var(--mut);font-size:13px}
+.usp{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.usp div{border-top:2px solid var(--acc);padding-top:10px;font-weight:600;font-size:15px;line-height:1.3}
+.usp small{display:block;font-weight:400;color:var(--mut);font-size:13px;margin-top:2px}
+@media(max-width:520px){.usp{grid-template-columns:1fr}}
+/* sections */
+.sec{padding-block:56px}
+.alt{background:var(--bg2)}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+/* stock */
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(220px,1fr);gap:16px;overflow-x:auto;padding-bottom:10px;scroll-snap-type:x mandatory}
+@media(min-width:1100px){.rail{grid-auto-columns:calc((100% - 48px)/4)}}
+.pc{scroll-snap-align:start;display:grid;gap:8px;align-content:start}
+.pc .ph{aspect-ratio:1}
+.pc .st{position:absolute;left:10px;top:10px;border-radius:var(--rb);padding:4px 10px;font-size:12px;font-weight:600;background:var(--surf);color:var(--ink)}
+.pc .st.low{background:var(--acc);color:var(--on-acc)}
+.pc .st.off{background:var(--ink);color:var(--bg)}
+.pc h3{font-family:var(--body);font-weight:600;font-size:16px;letter-spacing:0}
+.pc .row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.pr{font-weight:700;font-size:19px;font-variant-numeric:tabular-nums}
+.note{font-size:12px;color:var(--mut);margin-top:12px}
+/* no stock manifesto */
+.mani .in{display:grid;gap:28px;align-items:center}
+@media(min-width:920px){.mani .in{grid-template-columns:.9fr 1.1fr;gap:56px}}
+.mani .ph{aspect-ratio:9/14;max-height:620px;max-width:100%}
+.quote{font-size:clamp(30px,4.2vw,48px);color:var(--acc)}
+.sig{font-family:var(--hand);font-size:28px}
+/* story */
+.story .in{display:grid;gap:28px}
+@media(min-width:920px){.story .in{grid-template-columns:1fr 1.2fr;gap:56px;align-items:start}}
+.tl{display:grid;gap:0;border-left:2px solid var(--line);margin-left:6px}
+.tl div{position:relative;padding:0 0 22px 22px;display:grid;gap:2px}
+.tl div::before{content:"";position:absolute;left:-8px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--acc)}
+.tl b{font-variant-numeric:tabular-nums;font-size:15px}
+.chk{font-size:12px;color:var(--acc);font-weight:600}
+.nums{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.nums div{background:var(--surf);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:grid;gap:2px}
+.nums b{font-family:var(--disp);font-weight:var(--dispw);font-size:30px;font-variant-numeric:tabular-nums}
+/* how */
+.steps{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.step{display:grid;gap:10px;align-content:start}
+.step .ph{aspect-ratio:4/3}
+.step h3{font-family:var(--body);font-weight:600;font-size:17px;letter-spacing:0;display:flex;gap:10px;align-items:baseline}
+.step h3 i{font-style:normal;color:var(--acc);font-variant-numeric:tabular-nums}
+/* season */
+.season{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+@media(max-width:720px){.season{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.mo{background:var(--surf);border:1px solid var(--line);border-radius:calc(var(--r) * .6);padding:12px;display:grid;gap:4px;min-height:96px;align-content:start}
+.mo b{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut)}
+.mo span{font-weight:600;font-size:15px;line-height:1.3}
+.mo.now{background:var(--acc);border-color:var(--acc);color:var(--on-acc)}
+.mo.now b{color:inherit;opacity:.8}
+/* gifts */
+.gift{display:grid;gap:0;border-radius:var(--r);overflow:hidden;background:var(--surf);border:1px solid var(--line)}
+@media(min-width:820px){.gift{grid-template-columns:1.1fr 1fr}}
+.gift .ph{border-radius:0;min-height:320px}
+.gift .tx{padding:32px;display:grid;gap:14px;align-content:center}
+/* faq */
+.faq{display:grid;gap:10px;max-width:820px}
+details{background:var(--surf);border:1px solid var(--line);border-radius:calc(var(--r) * .7);padding:16px 18px}
+summary{font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::after{content:"+";color:var(--acc);font-size:22px;line-height:1}
+details[open] summary::after{content:"−"}
+details p{margin-top:8px;color:var(--mut)}
+/* footer */
+footer{background:var(--ink);color:var(--bg);font-size:14px}
+[data-c="b"] footer{background:#1b1310;color:var(--ink)}
+footer .in{display:grid;gap:22px;padding-block:44px}
+@media(min-width:820px){footer .in{grid-template-columns:1.3fr 1fr 1fr}}
+footer .lg{font-family:var(--disp);font-weight:var(--dispw);font-size:24px}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+footer .crs{border:1px solid color-mix(in srgb,currentColor 30%,transparent);border-radius:var(--r);padding:16px;display:grid;gap:6px}
+/* research */
+.res{background:#F4EFE8;color:#2B211B;border-bottom:1px solid #E1D6C8;font-size:14px}
+.res .in{display:grid;gap:14px;padding-block:20px}
+@media(min-width:900px){.res .in{grid-template-columns:repeat(3,1fr)}}
+.res h4{margin:0 0 6px;font:600 12px/1 "Onest",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8A5A3C}
+.res ul{margin:0;padding-left:18px;display:grid;gap:4px}
+.res a{color:#8A2A48}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+</style>
+
+<div class="sw g"><div class="in">
+  <b>Концепт</b>
+  <div class="tabs" role="group" aria-label="Выбор концепта">
+    <button type="button" data-set="a" aria-pressed="true">A · Молоко и малина</button>
+    <button type="button" data-set="b" aria-pressed="false">B · Подарочная коробка</button>
+    <button type="button" data-set="c" aria-pressed="false">C · Зефирное облако</button>
+  </div>
+  <span class="nt" id="cdesc"></span>
+</div></div>
+
+<section class="res g" aria-label="Что известно о бизнесе"><div class="in">
+  <div><h4>Проверено</h4><ul>
+    <li>ООО «Лесная Ягодка», д. Переслегино, Великолукский р-н; сырьё со своих плантаций и из лесов Псковской области.</li>
+    <li>Автор — Марина Котюкова; курсы на zefirfly.com, там же: «более 30 000 коробок за 3 года». Набор на курсы приостановлен с 1 сентября 2026.</li>
+    <li>Продаются и на Wildberries (зефир из дыни, наборы с пастилой без сахара).</li>
+  </ul></div>
+  <div><h4>Со слов, сверить с Мариной</h4><ul>
+    <li>История «от полиции до зефира», 2018 кредиты, 87 га, 10 семей, 2020 переработка.</li>
+    <li>Готовят только после заказа, 5 дней до отправки.</li>
+    <li>Партии выкладываются около 18:00 МСК, в одном и том же количестве.</li>
+    <li>Сезонность вкусов и какие ягоды в какой месяц.</li>
+  </ul></div>
+  <div><h4>Решения в концептах</h4><ul>
+    <li>Центр сайта — «нет в наличии» как ценность: партия в 18:00, счётчик, «сообщить, когда появится».</li>
+    <li>Блоки «Лица команды» и «Отзывы» убраны. Курсы — только в подвале, ссылкой на @zefirfly.</li>
+    <li>Фото везде — рамки с подписью, какой реальный кадр из инсты туда встаёт. Стоковых фото нет.</li>
+  </ul></div>
+</div></section>
+
+<div id="site" data-c="a">
+<header class="g"><div class="in">
+  <div class="logo"><span>Лесная ягодка</span><span class="hand">от Марины</span></div>
+  <nav class="m" aria-label="Разделы"><span>Зефир</span><span>Наборы</span><span>История</span><span>Доставка</span><span>Вопросы</span></nav>
+  <div class="hr"><span class="tg">Telegram</span><span class="btn pri s">Корзина · 0</span></div>
+</div></header>
+
+<section class="hero g"><div class="in">
+  <div class="txt">
+    <span class="eyebrow">Псковская область · ручная работа</span>
+    <h1>Зефир из лесных ягод Псковской области</h1>
+    <p class="lead">Готовлю вручную только после вашего заказа. Поэтому зефира почти никогда нет «в наличии» — он всегда свежий.</p>
+    <div class="drop" role="status"><div><small>Новая партия выходит</small><span class="t" id="cd">сегодня в 18:00</span></div><span class="btn pri s">Напомнить в Telegram</span></div>
+    <div style="display:flex;flex-wrap:wrap;gap:12px"><span class="btn pri">Что есть сейчас</span><span class="btn out">Подарочные наборы</span></div>
+    <div class="usp"><div>Ручная работа<small>каждая коробка</small></div><div>Без консервантов<small>только ягоды и фрукты</small></div><div>5 дней<small>от заказа до отправки</small></div></div>
+  </div>
+  <div class="ph"><i class="play" aria-hidden="true"></i><span>Видео-цикл 6–8 с из reels: руки Марины выкладывают зефир на полку. Без звука, с постером.</span></div>
+</div></section>
+
+<section class="sec alt g"><div class="in">
+  <div class="sh"><div style="display:grid;gap:8px"><span class="eyebrow">Лимитированная партия</span><h2>Сейчас в наличии</h2></div><span class="mut" style="font-size:14px">обновляется в 18:00 МСК</span></div>
+  <div class="rail" id="rail"></div>
+  <p class="note">Названия и цены — примеры. Карточки берут данные и остатки из каталога.</p>
+</div></section>
+
+<section class="sec mani g"><div class="in">
+  <div class="ph"><i class="play" aria-hidden="true"></i><span>Reels «нет в наличии» (565 тыс. просмотров) — вертикальное видео, запуск по нажатию.</span></div>
+  <div style="display:grid;gap:20px">
+    <span class="eyebrow">Почему зефира «нет в наличии»</span>
+    <p class="hand quote">«Мы не делаем зефир про запас. Ваш заказ — завтра на столе, послезавтра у вас в коробке.»</p>
+    <p class="mut" style="max-width:52ch">Черновик цитаты для Марины: в финальной версии здесь её слова из reels, написанные её почерком (оцифруем рукописный шрифт с её записки).</p>
+    <p style="max-width:56ch">Партии небольшие, потому что ягоды свои и считаются килограммами, а не тоннами. Если вкуса нет, нажмите «Сообщить, когда появится» — напишем первыми.</p>
+    <span class="sig">— Марина</span>
+  </div>
+</div></section>
+
+<section class="sec alt story g"><div class="in">
+  <div style="display:grid;gap:20px;align-content:start">
+    <span class="eyebrow">История</span>
+    <h2>Как ягодная ферма стала зефирным цехом</h2>
+    <div class="nums"><div><b>30 000+</b><span class="mut">коробок за 3 года</span></div><div><b>250+</b><span class="mut">учениц на курсах</span></div><div><b>87 га</b><span class="chk">сверить</span></div><div><b>10 семей</b><span class="chk">сверить</span></div></div>
+    <div class="ph" style="aspect-ratio:4/3"><span>Марина на плантации с корзиной ягод — кадр из поста с историей (19 тыс. лайков).</span></div>
+  </div>
+  <div class="tl">
+    <div><b>2018</b><span>Кредиты и первые кусты малины.</span><span class="chk">даты и формулировки сверить с Мариной</span></div>
+    <div><b>Малина и голубика</b><span>Ферма растёт, ягоду покупают знакомые, потом вся область.</span></div>
+    <div><b>2020</b><span>Ковид: ягоду некуда везти — начинаем перерабатывать.</span></div>
+    <div><b>Зефир</b><span>Из переработки вырастает зефирный цех и магазин «Лесная ягодка».</span></div>
+    <div><b>Сегодня</b><span>Зефир, пастила и травы по всей России, курсы для кондитеров.</span></div>
+    <p class="mut" style="padding-left:22px">Полная история — отдельная страница-лонгрид с видео.</p>
+  </div>
+</div></section>
+
+<section class="sec g"><div class="in">
+  <div class="sh"><div style="display:grid;gap:8px"><span class="eyebrow">Как мы делаем</span><h2>От грядки до коробки</h2></div></div>
+  <div class="steps">
+    <div class="step"><div class="ph"><span>Ягода с грядки: голубика в ладонях</span></div><h3><i>1</i>Собираем</h3><p class="mut">Своя ягода с плантации и из леса.</p></div>
+    <div class="step"><div class="ph"><span>Морозилки с ягодой</span></div><h3><i>2</i>Замораживаем</h3><p class="mut">Чтобы вкус лета дожил до зимы.</p></div>
+    <div class="step"><div class="ph"><span>Миксер, пюре, отсадка</span></div><h3><i>3</i>Варим и отсаживаем</h3><p class="mut">Только после вашего заказа.</p></div>
+    <div class="step"><div class="ph"><span>Упаковка накануне отправки</span></div><h3><i>4</i>Упаковываем</h3><p class="mut">Накануне отправки, не раньше.</p></div>
+  </div>
+</div></section>
+
+<section class="sec alt g"><div class="in">
+  <div class="sh"><div style="display:grid;gap:8px"><span class="eyebrow">Сезоны</span><h2>Какой вкус когда</h2></div><span class="chk">календарь-пример, сверить с Мариной</span></div>
+  <div class="season" id="season"></div>
+</div></section>
+
+<section class="sec g"><div class="in">
+  <div class="gift"><div class="ph"><span>Подарочная коробка открытой: зефир, пастила, открытка от руки</span></div>
+  <div class="tx"><span class="eyebrow">Подарки</span><h2>Наборы, которые не стыдно дарить</h2><p class="mut">Сезонный набор, набор «попробовать всё», корпоративные наборы. Открытка с вашими словами — от руки.</p><div><span class="btn pri">Выбрать набор</span></div></div></div>
+</div></section>
+
+<section class="sec alt g"><div class="in">
+  <div class="sh"><h2>Вопросы</h2></div>
+  <div class="faq">
+    <details open><summary>Почему вашего зефира нет в наличии?</summary><p>Готовим только под заказ и маленькими партиями. Новые партии выходят в 18:00 МСК — подпишитесь, и мы напомним.</p></details>
+    <details><summary>Когда отправите?</summary><p>До 5 дней на приготовление, потом СДЭК. Трек-номер придёт на почту.</p></details>
+    <details><summary>Доставляете в Беларусь и Казахстан?</summary><p>Да, через СДЭК, оплата картой «Мир». <span class="chk">сверить</span></p></details>
+    <details><summary>Сколько хранится зефир?</summary><p>Срок годности и условия — на странице каждого вкуса.</p></details>
+    <details><summary>Можно вернуть?</summary><p>Порядок возврата — в оферте; если коробка пришла повреждённой, напишите нам в Telegram с фото.</p></details>
+  </div>
+</div></section>
+
+<footer class="g"><div class="in">
+  <div style="display:grid;gap:8px"><span class="lg">Лесная ягодка</span><span style="opacity:.8">ООО «Лесная Ягодка» · ИНН 6025050950 · ОГРН 1186027006934</span><span style="opacity:.8">д. Переслегино, Великолукский р-н, Псковская обл.</span></div>
+  <ul><li>Telegram-канал</li><li>Опт и сотрудничество</li><li>Доставка и оплата</li><li>Оферта · Политика ПДн</li></ul>
+  <div class="crs"><b>Учитесь делать зефир?</b><span style="opacity:.85">Курсы Марины — на @zefirfly. Сейчас набор на паузе.</span></div>
+</div></footer>
+</div>
+
+<script>
+const D={a:"Молочно-кремовая база, тёплая малина, коричневый вместо чёрного. Гротеск Onest + почерк для слов Марины. Ближе всего к брифу.",
+ b:"Тёмный шоколад и малина, как дорогая подарочная коробка. Антиква Prata в заголовках, фото ягод на тёмном смотрятся сочнее.",
+ c:"Розовый зефир и черничные чернила, мягкий округлый шрифт Unbounded. Самый весёлый и заметный в ленте."};
+const P=[["Зефир «Малина»","6 шт · 300 г","650 ₽","ok"],["Зефир «Голубика»","6 шт · 300 г","650 ₽","low"],["Зефир из дыни","6 шт · 300 г","690 ₽","low"],["Пастила без сахара, ассорти","150 г","420 ₽","ok"],["Зефир «Смородина»","6 шт · 300 г","650 ₽","off"],["Набор «Лесной»","зефир, пастила, чай","1 490 ₽","ok"]];
+const lbl={ok:"в наличии",low:"осталось 3",off:"нет в наличии"};
+document.getElementById("rail").innerHTML=P.map(([n,w,p,s])=>`<article class="pc"><div class="ph"><span class="st ${s}">${lbl[s]}</span><span>Макро: ${n.toLowerCase()} в разрезе + коробка</span></div><h3>${n}</h3><span class="mut" style="font-size:13px">${w}</span><div class="row"><span class="pr">${p}</span>${s==="off"?`<span class="btn out s">Сообщить, когда появится</span>`:`<span class="btn pri s">В корзину</span>`}</div></article>`).join("");
+const S=[["Июнь","земляника"],["Июль","малина"],["Август","голубика, дыня"],["Сентябрь","брусника"],["Октябрь","клюква"],["Зима","из запасов в морозилке"]];
+const nowM=new Date().getMonth();const idx={5:0,6:1,7:2,8:3,9:4}[nowM]??5;
+document.getElementById("season").innerHTML=S.map(([m,b],i)=>`<div class="mo${i===idx?" now":""}"><b>${m}</b><span>${b}</span></div>`).join("");
+const site=document.getElementById("site"),desc=document.getElementById("cdesc");
+function setC(c){site.dataset.c=c;desc.textContent=D[c];document.querySelectorAll("[data-set]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.set===c));try{localStorage.setItem("ly-concept",c)}catch(e){}}
+document.querySelectorAll("[data-set]").forEach(b=>b.addEventListener("click",()=>setC(b.dataset.set)));
+let saved="a";try{saved=localStorage.getItem("ly-concept")||"a"}catch(e){}setC(D[saved]?saved:"a");
+function tick(){const now=new Date();const msk=new Date(now.getTime()+(now.getTimezoneOffset()+180)*60000);const t=new Date(msk);t.setHours(18,0,0,0);if(msk>=t)t.setDate(t.getDate()+1);const s=Math.floor((t-msk)/1000);const h=String(Math.floor(s/3600)).padStart(2,"0"),m=String(Math.floor(s%3600/60)).padStart(2,"0"),x=String(s%60).padStart(2,"0");document.getElementById("cd").textContent=`через ${h}:${m}:${x} · в 18:00 МСК`;}
+tick();setInterval(tick,1000);
+</script>

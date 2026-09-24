@@ -1,0 +1,262 @@
+<title>Лесная ягодка: магазин</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<style>
+:root{
+  --text:#1F2A1C;--bg:#FBF8F1;--surface:#FFFFFF;--primary:#4F6B0C;--brand:#799C00;--cta:#FFE45C;--on-cta:#1F2A1C;
+  --accent:#A3244A;--secondary:#F3E9C6;--muted:#5B6356;--line:#E6DFCC;--ink:#1F2A1C;--on-ink:#F3EFE4;--ok:#2E7D4F;
+  --display:"Oswald","Arial Narrow",Arial,sans-serif;--body:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--text:#F3EFE4;--bg:#141A12;--surface:#1D251A;--primary:#A9C94A;--accent:#F07A9A;--secondary:#2A3322;--muted:#B5B8A8;--line:#34402D;--ink:#0B0F09;--ok:#6FCF97;}}
+:root[data-theme="dark"]{color-scheme:dark;--text:#F3EFE4;--bg:#141A12;--surface:#1D251A;--primary:#A9C94A;--accent:#F07A9A;--secondary:#2A3322;--muted:#B5B8A8;--line:#34402D;--ink:#0B0F09;--ok:#6FCF97;}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font:400 16px/1.55 var(--body);margin:0}
+.g{padding-inline:16px}
+.in{max-width:1200px;margin:0 auto}
+h1,h2{font-family:var(--display);font-weight:500;text-transform:uppercase;line-height:1.05;margin:0;text-wrap:balance}
+h2{font-size:clamp(26px,3.6vw,40px)}
+p{margin:0}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--primary);outline-offset:2px}
+.muted{color:var(--muted)}
+.eyebrow{font:600 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--primary)}
+.btn{border-radius:999px;border:1.5px solid transparent;padding:15px 24px;font-weight:600;font-size:16px;min-height:50px;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.btn.s{padding:9px 14px;font-size:13px;min-height:38px}
+.cta{background:var(--cta);color:var(--on-cta)}
+.out{background:transparent;border-color:var(--text)}
+.ghost{background:none;border:0;color:var(--primary);padding:6px 0;font-weight:600}
+.pill{background:var(--secondary);color:var(--primary);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:500;white-space:nowrap}
+/* header */
+.top{background:var(--primary);color:#fff;font-size:13px}
+:root[data-theme="dark"] .top{color:#141A12}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .top{color:#141A12}}
+.top .in{display:flex;justify-content:space-between;gap:12px;padding-block:8px;flex-wrap:wrap}
+header.h{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+header.h .in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.logo{font:500 22px/1 var(--display);text-transform:uppercase;color:var(--brand);background:none;border:0;padding:0;display:flex;align-items:center;gap:8px}
+.logo svg{width:26px;height:26px}
+nav.cats{display:none;gap:22px;font-weight:500;font-size:15px}
+nav.cats button{background:none;border:0;padding:4px 0}
+@media (min-width:980px){nav.cats{display:flex}}
+.cartbtn{background:var(--cta);color:var(--on-cta);border:0;border-radius:999px;padding:9px 14px;font-weight:600;font-size:14px;display:flex;gap:8px;align-items:center}
+.cartbtn b{background:var(--ink);color:var(--on-ink);border-radius:999px;padding:1px 8px;font-size:12px;font-variant-numeric:tabular-nums}
+/* hero */
+.hero .in{display:grid;gap:28px;padding-block:24px 40px;align-items:center}
+@media (min-width:900px){.hero .in{grid-template-columns:1.05fr 1fr;gap:56px;padding-block:40px 64px}}
+.hero h1{font-size:clamp(38px,6.6vw,68px);color:var(--primary)}
+.hero .lead{font-size:clamp(16px,1.6vw,19px);max-width:52ch}
+.hero .acts{display:flex;flex-wrap:wrap;gap:12px}
+.hero .trust{display:flex;flex-wrap:wrap;gap:8px}
+.hero .txt{display:grid;gap:18px}
+.heroart{border-radius:28px;overflow:hidden;aspect-ratio:1/0.9;max-width:100%;background:linear-gradient(140deg,#F8DDE2,#C45C7A);position:relative}
+.heroart svg{position:absolute;inset:0;width:100%;height:100%}
+.phnote{position:absolute;left:16px;bottom:14px;font:600 11px/1 var(--body);letter-spacing:.12em;color:#fff;text-transform:uppercase;opacity:.9}
+/* waves */
+.wave{display:block;width:100%;height:44px}
+/* sections */
+.sec{padding-block:28px 56px}
+.alt{background:var(--secondary)}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:22px;flex-wrap:wrap}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:22px;scrollbar-width:thin}
+.chip{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-weight:500;font-size:14px;white-space:nowrap}
+.chip[aria-pressed="true"]{background:var(--text);color:var(--bg);border-color:var(--text)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 14px}
+@media (min-width:720px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:1040px){.grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:28px 22px}}
+.card{display:grid;gap:6px;align-content:start}
+.card .art{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:1;background:var(--surface);border:0;padding:0;width:100%}
+.card .art svg{width:100%;height:100%;display:block}
+.badge{position:absolute;left:10px;top:10px;background:var(--surface);color:var(--primary);border-radius:999px;padding:4px 10px;font-size:12px;font-weight:600}
+.card .nm{font-weight:600;font-size:15px;line-height:1.3;background:none;border:0;padding:0;text-align:left}
+.card .row{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:2px}
+.price{font:500 22px/1 var(--display);font-variant-numeric:tabular-nums}
+.note{font-size:12px;margin-top:18px}
+.two{display:grid;gap:22px}
+@media (min-width:900px){.two{grid-template-columns:1fr 1fr;gap:40px;align-items:start}}
+.gift{background:var(--accent);color:#fff;border-radius:26px;overflow:hidden;display:grid}
+@media (min-width:600px){.gift{grid-template-columns:.9fr 1fr}}
+.gift .gtx{padding:26px;display:grid;gap:12px;align-content:center}
+.gift h2{color:#fff}
+.gift svg{width:100%;height:100%;min-height:200px;display:block}
+.list{display:grid;gap:12px}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px;display:grid;gap:4px}
+.item b{font-weight:600}
+.dl{display:grid;gap:14px}
+@media (min-width:720px){.dl{grid-template-columns:repeat(3,1fr)}}
+details{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+details summary{font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
+details summary::after{content:"+";color:var(--primary);font-size:22px;line-height:1}
+details[open] summary::after{content:"−"}
+details p{margin-top:8px;color:var(--muted)}
+.opt{background:var(--primary);color:#fff}
+:root[data-theme="dark"] .opt{color:#141A12}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .opt{color:#141A12}}
+.opt .in{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:18px;padding-block:34px}
+footer{background:var(--ink);color:var(--on-ink);font-size:13px}
+footer .in{display:grid;gap:14px;padding-block:32px 120px}
+@media (min-width:720px){footer .in{grid-template-columns:1.4fr 1fr}}
+footer .lg{font:500 22px/1 var(--display);color:var(--cta);text-transform:uppercase}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+/* product */
+.pv .in{display:grid;gap:22px;padding-block:18px 120px}
+@media (min-width:900px){.pv .in{grid-template-columns:1fr 1fr;gap:48px}}
+.crumbs{font-size:13px}
+.crumbs button{background:none;border:0;padding:0;color:var(--primary);font-size:13px}
+.big{border-radius:24px;overflow:hidden;aspect-ratio:1;max-width:100%;position:relative}
+.big svg{width:100%;height:100%;display:block}
+.pinfo{display:grid;gap:16px;align-content:start}
+.pinfo h1{font-size:clamp(30px,4.4vw,48px);color:var(--primary)}
+.seg{display:flex;gap:8px}
+.buy{display:flex;gap:10px;align-items:center}
+.buy .cta{flex:1}
+.step{display:flex;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px}
+.step button{width:40px;height:40px;border-radius:999px;border:0;background:var(--secondary);font-size:18px;font-weight:600}
+.step span{min-width:34px;text-align:center;font-weight:600;font-variant-numeric:tabular-nums}
+.info{background:var(--secondary);border-radius:16px;padding:14px 16px;display:grid;gap:4px;font-size:14px}
+.spec{display:grid;gap:14px}
+.spec h3{font:500 18px/1.2 var(--display);text-transform:uppercase;margin:0}
+/* cart / checkout */
+.ck .in{max-width:720px;padding-block:18px 140px;display:grid;gap:18px}
+.ck h1{font-size:clamp(30px,5vw,44px)}
+.line{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:12px;display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center}
+.line .th{width:64px;height:64px;border-radius:12px;overflow:hidden}
+.line .th svg{width:100%;height:100%}
+.line .nm{font-weight:600;font-size:15px}
+.sum{display:grid;gap:6px}
+.sum div{display:flex;justify-content:space-between;font-variant-numeric:tabular-nums}
+.total{font:500 26px/1 var(--display)}
+form{display:grid;gap:14px}
+label.f{display:grid;gap:6px;font-weight:500;font-size:14px}
+input[type=text],input[type=tel],input[type=email]{font:inherit;font-size:16px;padding:14px;border-radius:12px;border:1.5px solid var(--muted);background:var(--surface);color:var(--text);width:100%}
+.segd{display:flex;background:var(--secondary);border-radius:999px;padding:4px;gap:4px}
+.segd button{flex:1;border:0;background:none;border-radius:999px;padding:10px 8px;font-size:14px;font-weight:500}
+.segd button[aria-pressed="true"]{background:var(--surface);font-weight:600}
+.cb{display:flex;gap:12px;align-items:flex-start;font-size:14px}
+.cb input{width:22px;height:22px;margin:0;accent-color:var(--primary);flex:none}
+.cb a{color:var(--primary)}
+.err{color:var(--accent);font-size:13px;font-weight:500}
+.done{display:grid;gap:16px;justify-items:start}
+.okdot{width:64px;height:64px;border-radius:50%;background:var(--ok)}
+.track{display:grid;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;width:100%}
+.track div{display:flex;gap:10px;align-items:center}
+.track i{width:12px;height:12px;border-radius:50%;background:var(--line)}
+.track .on i{background:var(--ok)}
+/* floating cart */
+.fcart{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));width:min(560px,calc(100% - 32px));background:var(--ink);color:var(--on-ink);border-radius:999px;padding:8px 8px 8px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px;box-shadow:0 10px 30px rgba(20,26,18,.25);z-index:6}
+.fcart small{display:block;opacity:.75;font-size:12px}
+.fcart b{font-variant-numeric:tabular-nums}
+.demo{background:var(--secondary);color:var(--muted);font-size:12px;text-align:center;padding:6px 16px}
+@media (prefers-reduced-motion:no-preference){.card .art svg{transition:transform .35s ease}.card .art:hover svg{transform:scale(1.04)}}
+</style>
+
+<div class="demo">Прототип дизайна. Названия, цены и граммовки — примеры, фото заменят иллюстрации.</div>
+<div class="top g"><div class="in"><span>Доставка СДЭК по всей России · самовывоз из Переслегино</span><span>+7 911 376-65-57 · 8:00–17:00 МСК</span></div></div>
+<header class="h g"><div class="in">
+  <button class="logo" type="button" data-go="home" aria-label="На главную"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4c4 0 8 2 9 5-4 1-7 0-9-2-2 2-5 3-9 2 1-3 5-5 9-5z" fill="#4F6B0C"/><circle cx="14" cy="22" r="7" fill="#A3244A"/><circle cx="26" cy="22" r="7" fill="#A3244A"/><circle cx="20" cy="31" r="7" fill="#5C2A4A"/></svg>Лесная ягодка</button>
+  <nav class="cats" aria-label="Категории" id="topcats"></nav>
+  <button class="cartbtn" type="button" data-go="cart">Корзина <b id="cnt">0</b></button>
+</div></header>
+
+<main id="app"></main>
+
+<div class="fcart" id="fcart" hidden><div><small id="fcN"></small><b id="fcS"></b></div><button class="btn cta" type="button" data-go="cart">Оформить →</button></div>
+
+<script>
+const CATS=[["zefir","Зефир"],["past","Пастила"],["herb","Травяные сборы"],["jam","Варенье и ягоды"],["mush","Грибы"],["bake","Выпечка"],["set","Наборы"]];
+const P=[
+ {id:1,c:"zefir",n:"Зефир «Лесная клюква»",w:"250 г",p:420,b:"хит",d:"Воздушный зефир на пюре клюквы с наших болот.",s:"пюре клюквы, яблочное пюре, сахар, агар, яичный белок"},
+ {id:2,c:"past",n:"Пастила яблочно-брусничная",w:"100 г",p:290,b:"без сахара",d:"Только яблочное и брусничное пюре. Без сахара, красителей и консервантов.",s:"яблочное пюре, пюре брусники"},
+ {id:3,c:"zefir",n:"Зефир «Черника»",w:"250 г",p:420,b:null,d:"Нежный зефир с лесной черникой.",s:"пюре черники, яблочное пюре, сахар, агар, яичный белок"},
+ {id:4,c:"herb",n:"Иван-чай с малиной",w:"50 г",p:250,b:null,d:"Ферментированный иван-чай и листья малины, собранные вдали от трасс.",s:"кипрей узколистный, лист малины"},
+ {id:5,c:"past",n:"Пастила «Ежевика»",w:"100 г",p:290,b:"без сахара",d:"Яблоко и ежевика с плантации. Без сахара.",s:"яблочное пюре, пюре ежевики"},
+ {id:6,c:"jam",n:"Брусника в собственном соку",w:"300 мл",p:380,b:null,d:"Лесная брусника без варки, в собственном соку.",s:"брусника"},
+ {id:7,c:"herb",n:"Сбор «Лесной» с чабрецом",w:"50 г",p:260,b:"новинка",d:"Чабрец, мята, земляничный лист.",s:"чабрец, мята, лист земляники"},
+ {id:8,c:"mush",n:"Белые грибы сушёные",w:"50 г",p:540,b:null,d:"Собраны в лесах Псковской области, высушены целиком.",s:"белые грибы"},
+ {id:9,c:"bake",n:"Пряники медовые",w:"200 г",p:240,b:null,d:"Пряники собственного производства.",s:"[состав от производителя]"},
+ {id:10,c:"set",n:"Набор «Вкус леса»",w:"зефир, пастила, чай",p:1190,b:"подарок",d:"Крафтовая коробка: зефир, две пастилы и травяной сбор.",s:"состав — по вложениям"}
+];
+const PAL={zefir:["#F8DDE2","#C45C7A"],past:["#EFC1A6","#8A3B4E"],herb:["#D6DFB8","#4F6B0C"],jam:["#F2CF8E","#A3244A"],mush:["#E6D5B3","#7A5A3A"],bake:["#F5E3BD","#B8864A"],set:["#E9B8C2","#6E1F3A"]};
+function art(c,id){const [a,b]=PAL[c],g="g"+c+id;let s="";
+ if(c==="zefir")s=`<g transform="translate(100 104)"><ellipse rx="54" ry="16" cy="40" fill="#000" opacity=".08"/><g fill="#fff"><path d="M-46 8 C-46 -40 46 -40 46 8 C46 30 -46 30 -46 8Z" opacity=".95"/></g><g fill="${b}" opacity=".55"><path d="M-30 -14 C-20 -34 20 -34 30 -14 C18 -22 -18 -22 -30 -14Z"/><path d="M-40 4 C-30 -18 30 -18 40 4 C26 -6 -26 -6 -40 4Z"/></g></g>`;
+ else if(c==="past")s=`<g transform="translate(100 100)"><rect x="-58" y="-34" width="116" height="20" rx="10" fill="${b}"/><rect x="-50" y="-8" width="100" height="20" rx="10" fill="${b}" opacity=".8"/><rect x="-42" y="18" width="84" height="20" rx="10" fill="${b}" opacity=".6"/><circle cx="48" cy="40" r="10" fill="#A3244A"/><circle cx="62" cy="34" r="7" fill="#5C2A4A"/></g>`;
+ else if(c==="herb")s=`<g transform="translate(100 100)"><path d="M0 50 C0 10 0 -20 0 -50" stroke="${b}" stroke-width="4" fill="none"/>${[-36,-12,12,36].map((y,i)=>`<path d="M0 ${y} C${i%2?20:-20} ${y-22} ${i%2?48:-48} ${y-18} ${i%2?54:-54} ${y-4} C${i%2?36:-36} ${y+6} ${i%2?16:-16} ${y+8} 0 ${y}Z" fill="${b}" opacity=".85"/>`).join("")}</g>`;
+ else if(c==="jam")s=`<g transform="translate(100 104)"><rect x="-38" y="-30" width="76" height="70" rx="14" fill="#fff" opacity=".6"/><rect x="-42" y="-44" width="84" height="18" rx="6" fill="${b}"/><circle cx="-12" cy="10" r="10" fill="${b}"/><circle cx="10" cy="18" r="9" fill="${b}"/><circle cx="4" cy="-4" r="8" fill="${b}"/></g>`;
+ else if(c==="mush")s=`<g transform="translate(100 108)"><path d="M-50 -6 C-50 -50 50 -50 50 -6 Z" fill="${b}"/><rect x="-14" y="-8" width="28" height="46" rx="12" fill="#F5E9D2"/></g>`;
+ else if(c==="bake")s=`<g transform="translate(100 104)"><circle r="46" fill="${b}"/><circle r="36" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="6 7" opacity=".8"/></g>`;
+ else s=`<g transform="translate(100 104)"><rect x="-56" y="-40" width="112" height="82" rx="8" fill="#C9A77A"/><rect x="-56" y="-40" width="112" height="18" rx="6" fill="#B08B5E"/><rect x="-6" y="-40" width="12" height="82" fill="#FFE45C"/><circle cx="30" cy="10" r="10" fill="#fff" opacity=".7"/></g>`;
+ return `<svg viewBox="0 0 200 200" role="img" aria-label="Иллюстрация товара"><defs><linearGradient id="${g}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}" stop-opacity=".55"/></linearGradient></defs><rect width="200" height="200" fill="url(#${g})"/>${s}</svg>`;}
+const rub=n=>n.toLocaleString("ru-RU")+" ₽";
+let cart={};try{cart=JSON.parse(localStorage.getItem("ly-cart")||"{}")||{}}catch(e){cart={}}
+let filter=null,view="home",cur=null,oneclick=null,delivery="СДЭК пункт";
+const save=()=>{try{localStorage.setItem("ly-cart",JSON.stringify(cart))}catch(e){}};
+const count=()=>Object.values(cart).reduce((a,b)=>a+b,0);
+const total=()=>Object.entries(cart).reduce((s,[id,q])=>s+P.find(p=>p.id==id).p*q,0);
+function plural(n){const m=n%10,h=n%100;return m==1&&h!=11?"товар":(m>=2&&m<=4&&(h<12||h>14)?"товара":"товаров")}
+function syncCart(){document.getElementById("cnt").textContent=count();const f=document.getElementById("fcart");const show=count()>0&&(view==="home"||view==="product");f.hidden=!show;document.getElementById("fcN").textContent=count()+" "+plural(count());document.getElementById("fcS").textContent=rub(total());}
+function add(id,q=1){cart[id]=(cart[id]||0)+q;if(cart[id]<=0)delete cart[id];save();syncCart();if(view==="cart")render();}
+function card(p){return `<article class="card"><button class="art" type="button" data-open="${p.id}" aria-label="${p.n}">${art(p.c,p.id)}${p.b?`<span class="badge">${p.b}</span>`:""}</button><button class="nm" type="button" data-open="${p.id}">${p.n}</button><span class="muted" style="font-size:13px">${p.w}</span><div class="row"><span class="price">${rub(p.p)}</span><button class="btn cta s" type="button" data-add="${p.id}">В корзину</button></div></article>`}
+const wave=(top,bot)=>`<svg class="wave" viewBox="0 0 1200 44" preserveAspectRatio="none" aria-hidden="true" style="background:var(${top})"><path d="M0 24 C260 0 520 44 820 18 C1000 4 1120 14 1200 16 L1200 44 L0 44Z" fill="var(${bot})"/></svg>`;
+function home(){const list=P.filter(p=>!filter||p.c===filter);
+return `<section class="hero g"><div class="in"><div class="txt"><span class="eyebrow">Своё производство · Псковская область</span><h1>Зефир и пастила из лесных ягод</h1><p class="lead">Ягоды с наших плантаций и из чистых лесов, ручная работа. Без красителей, консервантов и заменителей вкуса.</p><div class="acts"><button class="btn cta" type="button" data-scroll="catalog">В каталог</button><button class="btn out" type="button" data-filter="set">Подарочные наборы</button></div><div class="trust"><span class="pill">без красителей</span><span class="pill">без консервантов</span><span class="pill">ручная работа</span><span class="pill">пастила без сахара</span></div></div>
+<div class="heroart"><svg viewBox="0 0 600 540" aria-hidden="true"><ellipse cx="300" cy="470" rx="240" ry="30" fill="#000" opacity=".08"/><g transform="translate(230 330)"><path d="M-110 20 C-110 -96 110 -96 110 20 C110 70 -110 70 -110 20Z" fill="#fff"/><path d="M-80 -30 C-56 -80 56 -80 80 -30 C52 -48 -52 -48 -80 -30Z" fill="#C45C7A" opacity=".5"/><path d="M-100 8 C-72 -44 72 -44 100 8 C64 -14 -64 -14 -100 8Z" fill="#C45C7A" opacity=".45"/></g><g transform="translate(420 360)"><rect x="-70" y="-20" width="140" height="26" rx="13" fill="#8A3B4E"/><rect x="-60" y="12" width="120" height="26" rx="13" fill="#8A3B4E" opacity=".75"/></g><path d="M360 120 C420 60 520 60 570 100 C520 150 430 160 360 120Z" fill="#4F6B0C"/><circle cx="470" cy="190" r="26" fill="#A3244A"/><circle cx="510" cy="220" r="18" fill="#5C2A4A"/><circle cx="440" cy="230" r="16" fill="#A3244A"/></svg><span class="phnote">Здесь фото: зефир и пастила на льне</span></div></div></section>
+${wave("--bg","--secondary")}
+<section class="sec alt g" id="catalog"><div class="in"><div class="sh"><h2>${filter?CATS.find(c=>c[0]===filter)[1]:"Каталог"}</h2><span class="muted" style="font-size:14px">${list.length} ${plural(list.length)}</span></div>
+<div class="chips" role="group" aria-label="Фильтр по категориям"><button class="chip" type="button" data-filter="" aria-pressed="${!filter}">Все</button>${CATS.map(([k,v])=>`<button class="chip" type="button" data-filter="${k}" aria-pressed="${filter===k}">${v}</button>`).join("")}</div>
+<div class="grid">${list.map(card).join("")}</div><p class="note muted">Названия, цены и граммовки — примеры. В рабочей версии каталог приходит из админки.</p></div></section>
+${wave("--secondary","--bg")}
+<section class="sec g"><div class="in two"><div class="gift"><div>${art("set",99)}</div><div class="gtx"><h2>Подарочные наборы</h2><p>Зефир, пастила и травяной чай в крафтовой коробке, к празднику или просто так.</p><div><button class="btn cta" type="button" data-open="10">Выбрать набор</button></div></div></div>
+<div class="list"><h2>Почему это честно</h2><div class="item"><b>Свои плантации</b><span class="muted">Ягоды выращиваем сами и собираем в экологически чистых лесах Псковской области.</span></div><div class="item"><b>Ручная работа</b><span class="muted">Делаем небольшими партиями, без заменителей вкуса.</span></div><div class="item"><b>Честный состав</b><span class="muted">В пастиле — только ягодное и яблочное пюре. Без сахара, красителей и консервантов.</span></div></div></div></section>
+<section class="sec alt g"><div class="in"><div class="sh"><h2>Доставка и оплата</h2></div><div class="dl"><div class="item"><b>СДЭК по всей России</b><span class="muted">Трек-номер придёт на email после отправки</span></div><div class="item"><b>Самовывоз</b><span class="muted">д. Переслегино, ул. Садовая, 16Б · 8:00–17:00</span></div><div class="item"><b>Оплата онлайн</b><span class="muted">Картой или СБП, чек на почту</span></div></div></div></section>
+<section class="sec g"><div class="in two"><div class="list"><h2>Отзывы</h2><div class="item"><span style="color:#B26A00">★★★★★</span><span>[Реальный отзыв покупателя — только с разрешения автора]</span><span class="muted" style="font-size:13px">Имя · город</span></div></div>
+<div class="list"><h2>Вопросы</h2><details open><summary>Как хранить зефир и пастилу?</summary><p>В сухом прохладном месте, в закрытой упаковке. Срок годности указан на странице товара.</p></details><details><summary>Сколько идёт доставка?</summary><p>Срок и стоимость СДЭК считаются при оформлении по вашему адресу.</p></details><details><summary>Можно ли пастилу при диабете?</summary><p>В пастиле нет добавленного сахара, состав — на странице товара. При диабете посоветуйтесь с врачом.</p></details><details><summary>Есть ли оптовые поставки?</summary><p>Да, звоните: +7 911 376-65-57.</p></details></div></div></section>
+<section class="opt g"><div class="in"><div><h2>Опт и сотрудничество</h2><p>Поставляем в магазины здорового питания и кофейни.</p></div><span class="btn cta">+7 911 376-65-57</span></div></section>`}
+function product(){const p=P.find(x=>x.id===cur);const rel=P.filter(x=>x.id!==p.id&&x.c!==p.c).slice(0,2);
+return `<section class="pv g"><div class="in"><div style="display:grid;gap:12px;align-content:start"><div class="crumbs muted"><button type="button" data-go="home">Каталог</button> / ${CATS.find(c=>c[0]===p.c)[1]}</div><div class="big">${art(p.c,"b"+p.id)}${p.b?`<span class="badge">${p.b}</span>`:""}</div></div>
+<div class="pinfo"><h1>${p.n}</h1><p class="muted">${p.d}</p><div class="seg"><span class="pill" style="background:var(--text);color:var(--bg)">${p.w}</span></div>
+<div style="display:flex;justify-content:space-between;align-items:center"><span class="price" style="font-size:36px">${rub(p.p)}</span><span style="color:var(--ok);font-weight:600;font-size:14px">в наличии</span></div>
+<div class="buy"><div class="step"><button type="button" data-q="-1" aria-label="Меньше">−</button><span id="pq">1</span><button type="button" data-q="1" aria-label="Больше">+</button></div><button class="btn cta" type="button" data-addq="${p.id}">В корзину</button></div>
+<button class="btn out" type="button" data-one="${p.id}">Купить в 1 клик</button>
+<div class="info"><b>СДЭК по России · срок при оформлении</b><span class="muted">Самовывоз из Переслегино · 8:00–17:00</span></div>
+<div class="spec"><div><h3>Состав</h3><p>${p.s}</p></div><div><h3>Пищевая ценность</h3><p class="muted">[КБЖУ на 100 г — от производителя]</p></div><div><h3>Хранение</h3><p class="muted">В сухом прохладном месте. Срок годности — [от производителя].</p></div></div>
+<h3 style="font:500 18px/1.2 var(--display);text-transform:uppercase;margin:6px 0 0">С этим берут</h3><div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr))">${rel.map(card).join("")}</div></div></div></section>`}
+function cartV(){const ids=Object.keys(cart);if(!ids.length)return `<section class="ck g"><div class="in"><h1>Корзина</h1><p class="muted">Пока пусто. Загляните в каталог — начните с пастилы без сахара.</p><div><button class="btn cta" type="button" data-go="home">В каталог</button></div></div></section>`;
+return `<section class="ck g"><div class="in"><h1>Корзина</h1>${ids.map(id=>{const p=P.find(x=>x.id==id);return `<div class="line"><div class="th">${art(p.c,"c"+p.id)}</div><div style="display:grid;gap:6px"><span class="nm">${p.n}</span><span class="muted" style="font-size:13px">${p.w}</span><div class="step" style="width:max-content"><button type="button" data-inc="${p.id}" data-d="-1" aria-label="Меньше">−</button><span>${cart[id]}</span><button type="button" data-inc="${p.id}" data-d="1" aria-label="Больше">+</button></div></div><b style="font-variant-numeric:tabular-nums">${rub(p.p*cart[id])}</b></div>`}).join("")}
+<div class="sum"><div><span class="muted">Товары (${count()})</span><span>${rub(total())}</span></div><div><span class="muted">Доставка</span><span class="muted">на следующем шаге</span></div><div style="margin-top:6px"><b>Итого</b><span class="total">${rub(total())}</span></div></div>
+<button class="btn cta" type="button" data-go="checkout">Оформить заказ →</button><button class="ghost" type="button" data-go="home">← Продолжить покупки</button></div></section>`}
+function checkout(){const one=oneclick?P.find(x=>x.id===oneclick):null;const sum=one?one.p:total();
+return `<section class="ck g"><div class="in"><button class="ghost" type="button" data-go="${one?"product":"cart"}">← Назад</button><h1>${one?"Купить в 1 клик":"Оформление"}</h1>${one?`<p class="muted">${one.n}, ${one.w} · ${rub(one.p)}. Нужен только телефон, остальное уточним в сообщении.</p>`:""}
+<form id="f" novalidate><label class="f" for="nm">Имя<input id="nm" type="text" autocomplete="name" placeholder="Как к вам обращаться" value="Анна"></label>
+<label class="f" for="ph">Телефон<input id="ph" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 900 000-00-00" value="+7 911 000-00-00"></label>
+${one?"":`<label class="f" for="em">Email — пришлём трек-номер и чек<input id="em" type="email" autocomplete="email" value="anna@mail.ru"></label>
+<div class="f" style="display:grid;gap:6px;font-weight:500;font-size:14px">Доставка<div class="segd" role="group" aria-label="Способ доставки">${["СДЭК пункт","Курьер СДЭК","Самовывоз"].map(d=>`<button type="button" data-del="${d}" aria-pressed="${delivery===d}">${d}</button>`).join("")}</div><span class="muted" style="font-weight:400">${delivery==="Самовывоз"?"д. Переслегино, ул. Садовая, 16Б · бесплатно":"стоимость и срок посчитает СДЭК по адресу"}</span></div>`}
+<label class="cb" for="c1"><input id="c1" type="checkbox"><span>Я даю <a href="#f">согласие на обработку персональных данных</a></span></label>
+<label class="cb" for="c2"><input id="c2" type="checkbox"><span>Я принимаю <a href="#f">договор оферты</a></span></label>
+<label class="cb" for="c3"><input id="c3" type="checkbox"><span>Хочу получать новости и акции (по желанию)</span></label>
+<p class="err" id="er" hidden></p>
+<div class="sum"><div><b>Итого</b><span class="total">${rub(sum)}${!one&&delivery!=="Самовывоз"?" + доставка":""}</span></div></div>
+<button class="btn cta" type="submit">Оплатить · СБП или карта</button><p class="muted" style="font-size:12px;text-align:center">Галочки не отмечены заранее. Оплата через T-Банк, чек на email.</p></form></div></section>`}
+function done(){return `<section class="ck g"><div class="in done"><div class="okdot" aria-hidden="true"></div><h1 style="color:var(--primary)">Спасибо! Заказ № 1024 оплачен</h1><p>Соберём заказ и отправим. Трек-номер придёт на почту, чек — туда же.</p><div class="track"><div class="on"><i></i><b>Оплачен</b></div><div><i></i><span class="muted">Собираем</span></div><div><i></i><span class="muted">Передан в СДЭК</span></div><div><i></i><span class="muted">Доставлен</span></div></div><button class="btn out" type="button" data-go="home">Вернуться в магазин</button><p class="muted" style="font-size:14px">Это демонстрация: оплата не проводилась.</p></div></section>`}
+const foot=`<footer class="g"><div class="in"><div style="display:grid;gap:8px"><span class="lg">Лесная ягодка</span><span style="opacity:.8">ООО «Лесная Ягодка» · ИНН 6025050950 · ОГРН 1186027006934</span><span style="opacity:.8">Псковская обл., Великолукский р-н, д. Переслегино, ул. Садовая, 16Б</span></div><ul><li>Политика обработки ПДн</li><li>Согласие на обработку ПДн</li><li>Договор оферты</li><li>Cookies</li></ul></div></footer>`;
+function render(){const app=document.getElementById("app");app.innerHTML=({home,product,cart:cartV,checkout,done})[view]()+foot;syncCart();}
+function go(v){view=v;if(v!=="checkout"&&v!=="product")oneclick=null;render();window.scrollTo({top:0,behavior:"instant"});}
+document.getElementById("topcats").innerHTML=CATS.map(([k,v])=>`<button type="button" data-filter="${k}">${v}</button>`).join("");
+document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)return;const d=t.dataset;
+ if(d.go){go(d.go)}
+ else if(d.filter!==undefined){filter=d.filter||null;if(view!=="home"){view="home";render()}else render();document.getElementById("catalog").scrollIntoView({behavior:"smooth"})}
+ else if(d.scroll){document.getElementById(d.scroll).scrollIntoView({behavior:"smooth"})}
+ else if(d.open){cur=+d.open;go("product")}
+ else if(d.add){add(+d.add);t.textContent="Добавлено ✓";setTimeout(()=>{t.textContent="В корзину"},1200)}
+ else if(d.q){const el=document.getElementById("pq");el.textContent=Math.max(1,+el.textContent+ +d.q)}
+ else if(d.addq){add(+d.addq,+document.getElementById("pq").textContent);t.textContent="Добавлено ✓";setTimeout(()=>{t.textContent="В корзину"},1200)}
+ else if(d.inc){add(+d.inc,+d.d)}
+ else if(d.one){oneclick=+d.one;view="checkout";render();window.scrollTo({top:0})}
+ else if(d.del){delivery=d.del;render()}
+});
+document.addEventListener("submit",e=>{e.preventDefault();const er=document.getElementById("er");const ph=document.getElementById("ph").value.replace(/\D/g,"");const msgs=[];
+ if(ph.length<11)msgs.push("Проверьте телефон: нужно 11 цифр, например +7 911 000-00-00.");
+ if(!document.getElementById("c1").checked)msgs.push("Без согласия на обработку данных мы не сможем принять заказ.");
+ if(!document.getElementById("c2").checked)msgs.push("Отметьте, что принимаете договор оферты.");
+ if(msgs.length){er.hidden=false;er.textContent=msgs.join(" ");return}
+ if(!oneclick){cart={};save()}go("done")});
+render();
+</script>

@@ -1,0 +1,231 @@
+<title>Брендбук Лесной ягодки</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Inter:wght@400;500;600&display=swap">
+<style>
+:root{
+  --text:#1F2A1C;--bg:#FBF8F1;--surface:#FFFFFF;--primary:#4F6B0C;--brand:#799C00;--cta:#FFE45C;--on-cta:#1F2A1C;
+  --accent:#A3244A;--secondary:#F3E9C6;--muted:#5B6356;--line:#E6DFCC;--ink:#1F2A1C;--on-ink:#F3EFE4;
+  --zef1:#F8DDE2;--zef2:#C45C7A;--pas1:#EFC1A6;--pas2:#8A3B4E;--herb1:#D6DFB8;--herb2:#4F6B0C;
+  --display:"Oswald","Arial Narrow",Arial,sans-serif;--body:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;
+  --text:#F3EFE4;--bg:#141A12;--surface:#1D251A;--primary:#A9C94A;--accent:#F07A9A;--secondary:#2A3322;--muted:#B5B8A8;--line:#34402D;--ink:#0E120C;}}
+:root[data-theme="dark"]{color-scheme:dark;
+  --text:#F3EFE4;--bg:#141A12;--surface:#1D251A;--primary:#A9C94A;--accent:#F07A9A;--secondary:#2A3322;--muted:#B5B8A8;--line:#34402D;--ink:#0E120C;}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font:400 17px/1.55 var(--body);padding-inline:16px;padding-block:0 64px}
+.wrap{max-width:1120px;margin:0 auto;display:grid;gap:88px}
+h1,h2,h3{font-family:var(--display);font-weight:500;text-transform:uppercase;text-wrap:balance;margin:0;line-height:1.05}
+h2{font-size:clamp(30px,4.5vw,44px);color:var(--primary)}
+h3{font-size:20px;letter-spacing:.02em}
+p{margin:0;max-width:65ch}
+.eyebrow{font:600 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--primary)}
+.muted{color:var(--muted)}
+section{display:grid;gap:28px}
+.head{display:grid;gap:10px}
+/* cover */
+.cover{position:relative;overflow:hidden;background:var(--secondary);border-radius:0 0 40px 40px;margin-inline:-16px;padding:72px 16px 96px}
+.cover .in{max-width:1120px;margin:0 auto;display:grid;gap:22px;position:relative;z-index:1}
+.cover h1{font-size:clamp(56px,11vw,132px);color:var(--brand);letter-spacing:.01em}
+.cover p{font-size:clamp(18px,2.2vw,22px)}
+.cover svg.berries{position:absolute;right:-40px;top:20px;width:min(46vw,460px);height:auto;opacity:.95}
+.toc{display:flex;flex-wrap:wrap;gap:8px}
+.toc a{color:var(--text);text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:500}
+.toc a:focus-visible,.btn:focus-visible{outline:3px solid var(--primary);outline-offset:2px}
+/* essence */
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px;display:grid;gap:8px;align-content:start}
+.card b{font-weight:600}
+/* logo */
+.logos{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.logo-tile{border-radius:20px;min-height:200px;display:grid;place-items:center;padding:24px;border:1px solid var(--line)}
+.wm{font:500 44px/1 var(--display);text-transform:uppercase;letter-spacing:.02em;display:flex;align-items:center;gap:12px}
+.wm svg{width:38px;height:38px;flex:none}
+.lt-cream{background:#FBF8F1}.lt-cream .wm{color:#799C00}
+.lt-olive{background:#4F6B0C}.lt-olive .wm{color:#FFE45C}
+.lt-ink{background:#1F2A1C}.lt-ink .wm{color:#F3EFE4}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.rule{display:grid;gap:6px;font-size:15px}
+.rule .tag{font:600 12px/1 var(--body);letter-spacing:.1em;text-transform:uppercase}
+.ok{color:#2E7D4F}.no{color:var(--accent)}
+/* palette */
+.pal{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}
+.sw{background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:grid}
+.sw .chip{height:96px}
+.sw .meta{padding:12px 14px;display:grid;gap:2px;font-size:14px}
+.sw .meta b{font-weight:600;font-size:15px}
+.sw code{font:500 13px/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted)}
+.ratio{font-variant-numeric:tabular-nums}
+.bar{display:flex;height:28px;border-radius:999px;overflow:hidden;border:1px solid var(--line)}
+.bar span{display:block}
+/* type */
+.type{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:28px;display:grid;gap:22px}
+.trow{display:grid;grid-template-columns:140px 1fr;gap:16px;align-items:baseline;border-bottom:1px dashed var(--line);padding-bottom:18px}
+.trow:last-child{border-bottom:0;padding-bottom:0}
+.trow small{color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums}
+@media (max-width:560px){.trow{grid-template-columns:1fr;gap:6px}}
+/* graphics */
+.gfx{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.gtile{border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--surface);display:grid}
+.gtile .art{height:180px;display:grid;place-items:center}
+.gtile .cap{padding:14px 16px;font-size:15px;display:grid;gap:2px}
+.photo{border-radius:16px;aspect-ratio:1;max-width:100%}
+.ph-z{background:radial-gradient(circle at 35% 30%,#fff6 0 18%,transparent 19%),linear-gradient(135deg,var(--zef1),var(--zef2))}
+.ph-p{background:linear-gradient(135deg,var(--pas1),var(--pas2))}
+.ph-h{background:linear-gradient(135deg,var(--herb1),var(--herb2))}
+/* components */
+.comp{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:28px;display:grid;gap:28px}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{font:600 17px/1 var(--body);border-radius:999px;padding:17px 26px;border:1.5px solid transparent;cursor:pointer;min-height:52px}
+.btn.s{font-size:14px;padding:10px 16px;min-height:40px}
+.btn.cta{background:var(--cta);color:var(--on-cta)}
+.btn.out{background:transparent;color:var(--text);border-color:var(--text)}
+.btn.pri{background:var(--primary);color:var(--bg)}
+.btn.ghost{background:none;color:var(--primary);padding-inline:4px}
+.pill{background:var(--secondary);color:var(--primary);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:500}
+.pcard{width:220px;max-width:100%;display:grid;gap:6px}
+.pcard .photo{position:relative}
+.pcard .badge{position:absolute;left:10px;top:10px;background:var(--surface);color:var(--primary);border-radius:999px;padding:4px 10px;font-size:12px;font-weight:600}
+.pcard .nm{font-weight:600;font-size:16px;line-height:1.3}
+.pcard .pr{display:flex;justify-content:space-between;align-items:center}
+.price{font:500 22px/1 var(--display);font-variant-numeric:tabular-nums}
+.cartbar{background:var(--ink);color:var(--on-ink);border-radius:999px;padding:8px 8px 8px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;max-width:380px}
+.cartbar small{display:block;opacity:.75;font-size:12px}
+.cons{display:flex;gap:12px;align-items:flex-start;font-size:14px;max-width:380px}
+.cons .box{width:22px;height:22px;border:1.5px solid var(--muted);border-radius:6px;flex:none;background:var(--surface)}
+.cons a{color:var(--primary)}
+.cookie{background:var(--ink);color:var(--on-ink);border-radius:16px;padding:16px;display:grid;gap:12px;max-width:420px;font-size:14px}
+.cookie .row .btn.out{color:var(--on-ink);border-color:var(--on-ink)}
+/* voice */
+.voice{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.say{border-radius:20px;padding:20px;display:grid;gap:10px;border:1px solid var(--line);background:var(--surface)}
+.say q{font-size:17px;quotes:"«" "»"}
+.say.bad{background:transparent;border-style:dashed}
+.say.bad q{text-decoration:line-through;text-decoration-color:var(--accent);color:var(--muted)}
+ul.shots{margin:0;padding-left:20px;display:grid;gap:6px;max-width:65ch}
+footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:20px}
+@media (prefers-reduced-motion:no-preference){.cover svg.berries{animation:sway 9s ease-in-out infinite alternate;transform-origin:70% 20%}@keyframes sway{to{transform:rotate(-3deg)}}}
+</style>
+
+<header class="cover">
+  <svg class="berries" viewBox="0 0 460 420" aria-hidden="true">
+    <path d="M60 170 C140 60 300 40 420 110 C320 190 170 230 60 170Z" fill="#4F6B0C"/>
+    <path d="M60 170 C200 140 300 120 420 110" stroke="#799C00" stroke-width="4" fill="none"/>
+    <g fill="#A3244A"><circle cx="300" cy="230" r="44"/><circle cx="360" cy="270" r="30"/><circle cx="250" cy="300" r="26"/></g>
+    <g fill="#5C2A4A"><circle cx="190" cy="250" r="34"/><circle cx="330" cy="330" r="38"/></g>
+    <g fill="#fff" opacity=".35"><circle cx="288" cy="216" r="8"/><circle cx="182" cy="240" r="6"/><circle cx="322" cy="318" r="7"/></g>
+  </svg>
+  <div class="in">
+    <span class="eyebrow">Брендбук · версия 1 · 2026</span>
+    <h1>Лесная ягодка</h1>
+    <p>Зефир, пастила и травяные сборы из ягод со своих плантаций и из чистых лесов Псковской области. Ручная работа, без красителей и консервантов.</p>
+    <nav class="toc" aria-label="Разделы">
+      <a href="#essence">Суть</a><a href="#logo">Логотип</a><a href="#color">Цвет</a><a href="#type">Шрифты</a><a href="#graphics">Графика и фото</a><a href="#ui">Интерфейс</a><a href="#voice">Голос</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="essence">
+    <div class="head"><span class="eyebrow">01 · Суть бренда</span><h2>Вкус леса без лишнего</h2>
+    <p class="muted">Лесная ягодка — небольшое семейное производство. Бренд должен ощущаться как посылка от знакомых с фермы: тёплый, честный и простой.</p></div>
+    <div class="grid3">
+      <div class="card"><h3>Обещание</h3><p>Натуральные сладости из своих ягод, сделанные руками. Что написано в составе, то и внутри.</p></div>
+      <div class="card"><h3>Для кого</h3><p>Для тех, кто читает состав: семьи с детьми, люди без сахара, любители чая и подарков «со смыслом».</p></div>
+      <div class="card"><h3>Характер</h3><p>Спокойный, заботливый, немного деревенский. Без глянца, агрессивных скидок и стоковых улыбок.</p></div>
+    </div>
+  </section>
+
+  <section id="logo">
+    <div class="head"><span class="eyebrow">02 · Логотип</span><h2>Словесный знак</h2>
+    <p class="muted">Название набрано Oswald Medium капсом, рядом стоит знак-ягода. На светлом фоне — фирменная олива, на тёмном — жёлтый или молочный.</p></div>
+    <div class="logos">
+      <div class="logo-tile lt-cream"><div class="wm"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4c4 0 8 2 9 5-4 1-7 0-9-2-2 2-5 3-9 2 1-3 5-5 9-5z" fill="#4F6B0C"/><circle cx="14" cy="22" r="7" fill="#A3244A"/><circle cx="26" cy="22" r="7" fill="#A3244A"/><circle cx="20" cy="31" r="7" fill="#5C2A4A"/></svg>Лесная ягодка</div></div>
+      <div class="logo-tile lt-olive"><div class="wm"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4c4 0 8 2 9 5-4 1-7 0-9-2-2 2-5 3-9 2 1-3 5-5 9-5z" fill="#FFE45C"/><circle cx="14" cy="22" r="7" fill="#FFE45C"/><circle cx="26" cy="22" r="7" fill="#FFE45C"/><circle cx="20" cy="31" r="7" fill="#FFE45C"/></svg>Лесная ягодка</div></div>
+      <div class="logo-tile lt-ink"><div class="wm"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4c4 0 8 2 9 5-4 1-7 0-9-2-2 2-5 3-9 2 1-3 5-5 9-5z" fill="#A9C94A"/><circle cx="14" cy="22" r="7" fill="#F07A9A"/><circle cx="26" cy="22" r="7" fill="#F07A9A"/><circle cx="20" cy="31" r="7" fill="#C45C7A"/></svg>Лесная ягодка</div></div>
+    </div>
+    <div class="rules">
+      <div class="rule"><span class="tag ok">Можно</span>Минимальная высота знака — 24 px на экране, 8 мм в печати. Вокруг оставлять поле не меньше высоты буквы «Л».</div>
+      <div class="rule"><span class="tag no">Нельзя</span>Растягивать, менять шрифт, класть на пёстрое фото без подложки, красить в бруснику.</div>
+      <div class="rule"><span class="tag muted">Заметка</span>Знак-ягода — эскиз для обсуждения. Если у производства есть свой логотип на упаковке, берём его.</div>
+    </div>
+  </section>
+
+  <section id="color">
+    <div class="head"><span class="eyebrow">03 · Цвет</span><h2>Олива, лён, жёлтый и брусника</h2>
+    <p class="muted">Контраст посчитан к фону #FBF8F1. Для текста нужно ≥ 4.5 : 1 (WCAG AA). Исходная олива #799C00 даёт только 3.0, поэтому для текста и ссылок её затемнили до #4F6B0C.</p></div>
+    <div class="bar" aria-hidden="true"><span style="flex:40;background:#FBF8F1"></span><span style="flex:22;background:#F3E9C6"></span><span style="flex:15;background:#1F2A1C"></span><span style="flex:12;background:#4F6B0C"></span><span style="flex:7;background:#FFE45C"></span><span style="flex:4;background:#A3244A"></span></div>
+    <p class="muted" style="font-size:14px">Пропорции на странице: лён и зефирный фон занимают больше всего места, жёлтый — одна кнопка на экран, брусника — только бейджи и скидки.</p>
+    <div class="pal">
+      <div class="sw"><div class="chip" style="background:#FBF8F1"></div><div class="meta"><b>Лён</b><code>#FBF8F1</code><span class="muted">фон страницы</span></div></div>
+      <div class="sw"><div class="chip" style="background:#F3E9C6"></div><div class="meta"><b>Зефир-мёд</b><code>#F3E9C6</code><span class="muted">фоны секций, плашки</span></div></div>
+      <div class="sw"><div class="chip" style="background:#1F2A1C"></div><div class="meta"><b>Лесные чернила</b><code>#1F2A1C</code><span class="ratio muted">текст · 14.1 : 1</span></div></div>
+      <div class="sw"><div class="chip" style="background:#4F6B0C"></div><div class="meta"><b>Лесная олива</b><code>#4F6B0C</code><span class="ratio muted">заголовки, ссылки · 5.75 : 1</span></div></div>
+      <div class="sw"><div class="chip" style="background:#799C00"></div><div class="meta"><b>Олива бренда</b><code>#799C00</code><span class="ratio muted">логотип, крупный декор · 3.0 : 1</span></div></div>
+      <div class="sw"><div class="chip" style="background:#FFE45C"></div><div class="meta"><b>Жёлтая таблетка</b><code>#FFE45C</code><span class="ratio muted">кнопка «В корзину» · текст 11.7 : 1</span></div></div>
+      <div class="sw"><div class="chip" style="background:#A3244A"></div><div class="meta"><b>Брусника</b><code>#A3244A</code><span class="ratio muted">скидки, «осталось 2» · 6.8 : 1</span></div></div>
+      <div class="sw"><div class="chip" style="background:#5B6356"></div><div class="meta"><b>Мох</b><code>#5B6356</code><span class="ratio muted">вторичный текст · 5.9 : 1</span></div></div>
+    </div>
+  </section>
+
+  <section id="type">
+    <div class="head"><span class="eyebrow">04 · Шрифты</span><h2>Oswald + Inter</h2>
+    <p class="muted">Oswald остаётся с текущего сайта и отвечает за узнаваемость. Inter — для текста, цен и граммовок: в нём ровные цифры. На сайте оба шрифта подключаются с нашего сервера, без Google Fonts (152-ФЗ).</p></div>
+    <div class="type">
+      <div class="trow"><small>H1 · 56/58 · Oswald 500</small><div style="font:500 clamp(36px,6vw,56px)/1.05 var(--display);text-transform:uppercase;color:var(--primary)">Зефир и пастила из лесных ягод</div></div>
+      <div class="trow"><small>H2 · 40/44 · Oswald 500</small><div style="font:500 clamp(28px,4vw,40px)/1.1 var(--display);text-transform:uppercase">Хиты продаж</div></div>
+      <div class="trow"><small>H3 · 20/25 · Inter 600</small><div style="font:600 20px/1.25 var(--body)">Пастила яблочно-брусничная, 100 г</div></div>
+      <div class="trow"><small>Текст · 17/26 · Inter 400</small><p>Только яблочное и брусничное пюре. Без сахара, красителей и консервантов. Храните в сухом прохладном месте.</p></div>
+      <div class="trow"><small>Цена · 24 · Oswald 500</small><div class="price">290 ₽ &nbsp;·&nbsp; 1 240 ₽</div></div>
+      <div class="trow"><small>Мелкий · 14 · Inter 400</small><p class="muted" style="font-size:14px">Трек-номер придёт на email после отправки</p></div>
+    </div>
+  </section>
+
+  <section id="graphics">
+    <div class="head"><span class="eyebrow">05 · Графика и фото</span><h2>Ягоды, волны, лён</h2>
+    <p class="muted">Ягоды из текущего сайта остаются: 1–2 на секцию, частично за краем экрана. Секции разделены мягкими волнами вместо прямых линий.</p></div>
+    <div class="gfx">
+      <div class="gtile"><div class="art" style="background:var(--bg)"><svg viewBox="0 0 300 120" width="100%" height="120" preserveAspectRatio="none" aria-hidden="true"><rect width="300" height="60" fill="var(--bg)"/><path d="M0 60 C60 20 120 100 200 50 C250 22 280 44 300 46 L300 120 L0 120Z" fill="var(--secondary)"/></svg></div><div class="cap"><b>Волна-разделитель</b><span class="muted">SVG до 3 КБ, цвет следующей секции</span></div></div>
+      <div class="gtile"><div class="art" style="background:var(--secondary)"><svg viewBox="0 0 200 140" width="200" height="140" aria-hidden="true"><path d="M20 60 C60 10 140 0 190 30 C140 70 80 90 20 60Z" fill="#4F6B0C"/><circle cx="110" cy="92" r="24" fill="#A3244A"/><circle cx="146" cy="104" r="16" fill="#5C2A4A"/><circle cx="84" cy="116" r="14" fill="#A3244A"/></svg></div><div class="cap"><b>Ягоды и лист</b><span class="muted">декор по краям, не за текстом</span></div></div>
+      <div class="gtile"><div class="art" style="background:var(--surface);gap:10px;grid-template-columns:repeat(3,72px)"><div class="photo ph-z" style="width:72px"></div><div class="photo ph-p" style="width:72px"></div><div class="photo ph-h" style="width:72px"></div></div><div class="cap"><b>Цвет категорий</b><span class="muted">зефир — розовый, пастила — ягодный, травы — зелёный</span></div></div>
+    </div>
+    <div class="card"><h3>Съёмка товара: что нужно снять</h3>
+      <ul class="shots">
+        <li>Каждый товар на льняной скатерти, дневной свет сбоку, квадрат 1:1 и 4:5.</li>
+        <li>Зефир в разрезе: видна воздушная текстура.</li>
+        <li>Пастила в руках, рядом ягоды того же вкуса.</li>
+        <li>Подарочный набор открытым и закрытым.</li>
+        <li>Плантации и лес: 3–4 широких кадра для главной и «О нас».</li>
+        <li>Руки за работой на производстве: без постановочных улыбок.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="ui">
+    <div class="head"><span class="eyebrow">06 · Интерфейс</span><h2>Кнопки и карточки</h2>
+    <p class="muted">Одна жёлтая кнопка на экран. Никаких всплывающих окон: корзина — плавающая панель внизу, cookies — плашка, которая не закрывает контент.</p></div>
+    <div class="comp">
+      <div class="row"><button class="btn cta" type="button">В корзину</button><button class="btn out" type="button">Купить в 1 клик</button><button class="btn pri" type="button">Сохранить</button><button class="btn ghost" type="button">Весь каталог →</button><button class="btn cta s" type="button">В корзину</button></div>
+      <div class="row"><span class="pill">без красителей</span><span class="pill">без консервантов</span><span class="pill">ручная работа</span><span class="pill">пастила без сахара</span></div>
+      <div class="row" style="align-items:flex-start;gap:24px">
+        <div class="pcard"><div class="photo ph-p"><span class="badge">без сахара</span></div><div class="nm">Пастила яблочно-брусничная</div><div class="muted" style="font-size:13px">100 г</div><div class="pr"><span class="price">290 ₽</span><button class="btn cta s" type="button">В корзину</button></div></div>
+        <div style="display:grid;gap:20px;flex:1;min-width:260px">
+          <div class="cartbar"><div><small>2 товара</small><b>710 ₽</b></div><button class="btn cta" type="button">Оформить →</button></div>
+          <label class="cons"><span class="box" aria-hidden="true"></span><span>Я даю <a href="#ui">согласие на обработку персональных данных</a>. Галочка не стоит заранее, текст согласия — на отдельной странице.</span></label>
+          <div class="cookie"><span>Мы используем cookies: необходимые — всегда, аналитика Яндекс Метрики — только с вашего согласия.</span><div class="row"><button class="btn cta s" type="button">Принять</button><button class="btn out s" type="button">Только необходимые</button></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="voice">
+    <div class="head"><span class="eyebrow">07 · Голос</span><h2>Как мы пишем</h2>
+    <p class="muted">Пишем тепло, на «вы», коротко и по делу, про вкус и состав. Себя не хвалим, не обещаем того, что не можем подтвердить (например, «лечит» или «идеально для диабетиков»).</p></div>
+    <div class="voice">
+      <div class="say"><span class="tag ok eyebrow">Так</span><q>Только яблочное и брусничное пюре. Без сахара.</q><q>Соберём заказ и отправим СДЭК. Трек-номер придёт на почту.</q></div>
+      <div class="say bad"><span class="tag no eyebrow">Не так</span><q>Уникальный суперполезный продукт премиум-класса!!!</q><q>Ваша заявка принята, менеджер свяжется с вами.</q></div>
+    </div>
+  </section>
+
+  <footer>ООО «Лесная Ягодка» · д. Переслегино, Псковская обл. · Макеты: Figma «Лесная ягодка — DS &amp; Screens»</footer>
+</main>

@@ -1,0 +1,166 @@
+<title>Админка Лесной ягодки</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Onest:wght@400;500;600&display=swap">
+<style>
+:root{color-scheme:light;--bg:#ECE7DF;--soft:#F6F3EE;--ink:#2A2A26;--ac:#4A6B3A;--on:#F6F3EE;--mut:#5E5D56;--line:rgba(42,42,38,.18);--warn:#8A5A12;--ok:#3F6B32;
+ --serif:"Cormorant Garamond",Georgia,serif;--sans:"Onest",system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 var(--sans);padding-inline:0}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+.app{max-width:640px;margin:0 auto;min-height:100%;padding:0 16px 96px}
+.top{display:flex;justify-content:space-between;align-items:baseline;padding:18px 0 6px;gap:12px}
+.brand{font-family:var(--serif);font-size:24px;font-weight:500}
+.who{font-size:14px;color:var(--mut)}
+h1{font-family:var(--serif);font-weight:500;font-size:34px;line-height:1.1;margin:10px 0 4px}
+h2{font:600 13px/1.3 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin:28px 0 10px}
+p{margin:0}
+.mut{color:var(--mut)}
+.card{background:var(--soft);border:1px solid var(--line);padding:16px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
+.num{font-variant-numeric:tabular-nums}
+.big{font-family:var(--serif);font-size:30px;line-height:1;font-weight:500}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border:1px solid var(--ac);background:var(--ac);color:var(--on);font-size:14px;font-weight:500;letter-spacing:.1em;text-transform:uppercase}
+.btn.o{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.w{width:100%}
+.acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.acts .btn{flex:1 1 180px}
+.note{font-size:14px;color:var(--mut);margin-top:10px}
+.auto{display:flex;gap:10px;align-items:flex-start;font-size:15px}
+.auto i{flex:none;width:8px;height:8px;border-radius:50%;background:var(--ac);margin-top:8px}
+.log .row{align-items:flex-start;justify-content:flex-start}
+.log time{flex:none;width:48px;color:var(--mut);font-variant-numeric:tabular-nums;font-size:14px;padding-top:1px}
+.need{display:grid;gap:10px}
+.need button{display:flex;justify-content:space-between;align-items:center;width:100%;text-align:left;background:var(--soft);border:1px solid var(--line);padding:14px 16px;min-height:56px}
+.need b{font-weight:600}
+.pill{font-size:13px;border:1px solid currentColor;padding:2px 8px;white-space:nowrap}
+.pill.ok{color:var(--ok)}.pill.warn{color:var(--warn)}.pill.m{color:var(--mut)}
+/* batch editor */
+.fl{display:grid;grid-template-columns:1fr auto;gap:6px 12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.fl .nm{font-weight:600}
+.fl .hint{grid-column:1/-1;font-size:14px;color:var(--mut)}
+.fl .hint b{color:var(--ac);font-weight:600}
+.step{display:flex;align-items:center;border:1px solid var(--line);background:var(--bg)}
+.step button{width:44px;height:44px;border:0;background:none;font-size:20px}
+.step span{min-width:36px;text-align:center;font-weight:600;font-variant-numeric:tabular-nums}
+.cap{height:8px;background:var(--line);margin-top:8px}
+.cap span{display:block;height:100%;background:var(--ac)}
+.cap.over span{background:var(--warn)}
+.seg{display:flex;border:1px solid var(--ink)}
+.seg button{flex:1;min-height:44px;border:0;background:none;font-size:14px;font-weight:500}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
+.chips button{white-space:nowrap;border:1px solid var(--line);background:var(--soft);min-height:40px;padding:0 12px;font-size:14px}
+.chips button[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--bg)}
+.ord{display:grid;grid-template-columns:28px 1fr auto;gap:4px 10px;align-items:start;padding:14px 0;border-bottom:1px solid var(--line)}
+.ord input{width:22px;height:22px;margin:2px 0 0;accent-color:var(--ac)}
+.ord .a{grid-column:2/-1;font-size:13px;color:var(--ac)}
+.bar{position:sticky;bottom:72px;background:var(--ink);color:var(--bg);padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:16px}
+.bar .btn{background:var(--bg);color:var(--ink);border-color:var(--bg);min-height:44px}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:10px 6px;border-bottom:1px solid var(--line);font-size:15px}
+th{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);font-weight:600}
+td.r,th.r{text-align:right}
+.tw{overflow-x:auto}
+.tg{display:grid;grid-template-columns:1fr auto;gap:4px 16px;padding:14px 0;border-bottom:1px solid var(--line);align-items:center}
+.tg p{grid-column:1;font-size:14px;color:var(--mut)}
+.sw{width:52px;height:30px;border:1px solid var(--ink);background:var(--bg);position:relative;grid-row:1/3;grid-column:2}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;background:var(--ink);transition:left .15s}
+.sw[aria-checked="true"]{background:var(--ac);border-color:var(--ac)}
+.sw[aria-checked="true"]::after{left:25px;background:var(--on)}
+.links{display:grid;gap:0}
+.links button{display:flex;justify-content:space-between;background:none;border:0;border-bottom:1px solid var(--line);padding:16px 0;text-align:left;font-size:16px}
+nav.tabs{position:fixed;left:0;right:0;bottom:0;background:var(--soft);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px);z-index:5}
+nav.tabs .in{max-width:640px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr)}
+nav.tabs button{background:none;border:0;min-height:60px;font-size:13px;font-weight:500;color:var(--mut);display:grid;place-items:center;gap:2px;padding:6px 0}
+nav.tabs button svg{width:22px;height:22px}
+nav.tabs button[aria-current="page"]{color:var(--ac)}
+.demo{font-size:12px;color:var(--mut);text-align:center;padding:8px 0 0}
+@media (prefers-reduced-motion:reduce){.sw::after{transition:none}}
+</style>
+
+<div class="app">
+  <p class="demo">Прототип админки. Цифры и имена — пример данных.</p>
+  <div class="top"><span class="brand">Лесная ягодка</span><span class="who">Марина · владелец</span></div>
+  <main id="v"></main>
+</div>
+<nav class="tabs" aria-label="Разделы"><div class="in" id="tabs"></div></nav>
+
+<script>
+const ICON={today:'<path d="M4 6h16v14H4zM4 10h16M9 3v4M15 3v4"/>',batch:'<path d="M4 7h16M4 12h16M4 17h10"/>',orders:'<path d="M6 7h12l-1 13H7L6 7zM9 7V5a3 3 0 0 1 6 0v2"/>',shop:'<path d="M5 20V9l7-5 7 5v11M9 20v-6h6v6"/>',more:'<path d="M5 12h.01M12 12h.01M19 12h.01"/>'};
+const TABS=[["today","Сегодня"],["batch","Партии"],["orders","Заказы"],["shop","Цех"],["more","Ещё"]];
+let view="today";
+const F=[
+ {n:"Зефир малиновый",q:30,s:40,why:"в прошлый раз распродали за 9 мин",w:23},
+ {n:"Зефир голубичный",q:30,s:36,why:"распродали за 14 мин",w:17},
+ {n:"Зефир смородиновый",q:20,s:20,why:"остаток 4 коробки через час",w:3},
+ {n:"Пастила яблочная без сахара",q:40,s:45,why:"распродали за 40 мин",w:9},
+ {n:"Набор «Лесной»",q:15,s:18,why:"спрос растёт к праздникам",w:6},
+ {n:"Малина в собственном соку",q:25,s:20,why:"в прошлый раз осталось 7",w:0}];
+const CAP=200;
+let st="all";
+const O=[
+ {id:1043,c:"Анна К.",i:"Малиновый ×2, пастила",s:"paid",a:"Чек отправлен автоматически"},
+ {id:1042,c:"Ольга С.",i:"Набор «Лесной»",s:"paid",a:"К дате: 3 октября, поставлен в партию пн"},
+ {id:1041,c:"Игорь П.",i:"Голубичный ×3",s:"ready",a:"Накладная СДЭК создана, ярлык готов"},
+ {id:1039,c:"Мария Л.",i:"Смородиновый, малина в соку",s:"sent",a:"Трек отправлен клиенту 11:30"},
+ {id:1036,c:"Екатерина Д.",i:"Пастила ×4",s:"sent",a:"В пункте СДЭК, клиенту написали"},
+ {id:1035,c:"Светлана Р.",i:"Малиновый",s:"wait",a:"Ждёт оплату по записи на вкус, 1 ч 20 мин"}];
+const SN={paid:["Оплачен · собрать","warn"],ready:["Собран","ok"],sent:["Отправлен","m"],wait:["Ждёт оплату","m"]};
+const AUTO=[
+ ["Публиковать партию сама в назначенное время","Если вы не изменили черновик за сутки, он выходит как есть.",true],
+ ["Пост в Telegram-канал при публикации","Состав и фото вкусов. Выключите — пост будет ждать вашего «Опубликовать».",true],
+ ["Писать записавшимся на вкус","Держим для них коробку 2 часа и шлём ссылку на оплату.",true],
+ ["Создавать накладные СДЭК после «Собрано»","Вес и габариты считаются из заказа.",true],
+ ["Сообщения клиенту о статусе заказа","Принят, готовим, отправили с треком, ждёт в пункте.",true],
+ ["Просить отзыв через 3 дня после получения","Одно сообщение, без рекламы.",true],
+ ["Скрывать вкусы вне сезона","Показываем «вернётся в июле» и кнопку «Записаться».",true],
+ ["Вечерний отчёт в 21:00 в Telegram","Продажи, распродажа партии, что ждёт завтра.",false]];
+function cd(){const n=new Date(),m=new Date(n.getTime()+(n.getTimezoneOffset()+180)*6e4),t=new Date(m);t.setHours(18,0,0,0);if(m>=t)t.setDate(t.getDate()+1);const s=Math.floor((t-m)/1e3);return `${Math.floor(s/3600)} ч ${String(Math.floor(s%3600/60)).padStart(2,"0")} мин`}
+const total=()=>F.reduce((a,f)=>a+f.q,0);
+function today(){return `<h1>Пятница, 25 сентября</h1><p class="mut">Всё идёт по плану. Ниже — только то, что ждёт вас.</p>
+<h2>Партия сегодня в 18:00</h2>
+<div class="card"><div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span class="big num">${total()} коробок</span><span class="mut num">через ${cd()}</span></div>
+${F.slice(0,4).map(f=>`<div class="row"><span>${f.n}</span><span class="num">${f.q}</span></div>`).join("")}
+<div class="row"><span class="mut">и ещё ${F.length-4}</span><span></span></div>
+<div class="auto" style="margin-top:10px"><i></i><span>Опубликуется сама в 18:00. Пост в Telegram готов. ${F.reduce((a,f)=>a+f.w,0)} человек из записей получат сообщение.</span></div>
+<div class="acts"><button class="btn" type="button" data-go="batch">Изменить количества</button><button class="btn o" type="button">Опубликовать сейчас</button></div></div>
+<h2>Ждёт вас</h2>
+<div class="need"><button type="button" data-go="shop"><span><b>12 заказов</b> собрать до завтра</span><span class="pill warn">Цех</span></button>
+<button type="button" data-go="orders"><span><b>1 заказ</b> к дате 3 октября, проверьте открытку</span><span class="pill m">Заказы</span></button></div>
+<h2>Сделано автоматически сегодня</h2>
+<div class="card log">
+<div class="row"><time>09:12</time><span>7 чеков по оплатам отправлено покупателям</span></div>
+<div class="row"><time>10:05</time><span>8 накладных СДЭК создано, курьер вызван на 14:00</span></div>
+<div class="row"><time>11:30</time><span>8 клиентов получили трек-номера</span></div>
+<div class="row"><time>14:00</time><span>Черновик партии на понедельник создан по шаблону «Обычная»</span></div>
+<div class="row"><time>16:40</time><span>2 клиента получили «ваш заказ в пункте СДЭК»</span></div></div>`}
+function batch(){const t=total(),p=Math.min(100,Math.round(t/CAP*100));return `<h1>Партия пт, 25 сентября</h1><p class="mut">Выйдет в 18:00 · шаблон «Обычная»</p>
+<div class="card" style="margin-top:14px"><div style="display:flex;justify-content:space-between"><span>Цех успевает</span><span class="num"><b>${t}</b> из ${CAP} коробок</span></div><div class="cap${t>CAP?" over":""}"><span style="width:${p}%"></span></div>${t>CAP?'<p class="note" style="color:var(--warn)">Больше, чем цех успевает за 5 дней. Уменьшите или добавьте день производства.</p>':""}</div>
+<div style="margin-top:6px">${F.map((f,i)=>`<div class="fl"><span class="nm">${f.n}</span><div class="step"><button type="button" data-q="${i}" data-d="-5" aria-label="Меньше на 5">−</button><span>${f.q}</span><button type="button" data-q="${i}" data-d="5" aria-label="Больше на 5">+</button></div><span class="hint">Рекомендуем <b>${f.s}</b> · ${f.why}${f.w?` · ${f.w} записей`:""}</span></div>`).join("")}</div>
+<div class="acts"><button class="btn" type="button" id="acc">Принять все подсказки</button><button class="btn o" type="button">Сохранить как шаблон</button></div>
+<h2>Расписание</h2><div class="card"><div class="row"><span>Пн, ср, пт в 18:00</span><span class="mut">шаблон «Обычная»</span></div><div class="row"><span>Черновик создаётся</span><span class="mut">за сутки</span></div><div class="row"><span>Продажи закрываются</span><span class="mut">при распродаже или в 23:59</span></div></div>`}
+function orders(){const c=k=>O.filter(o=>k==="all"||o.s===k).length;const L=O.filter(o=>st==="all"||o.s===st);const sel=L.filter(o=>o.s==="paid").length;
+return `<h1>Заказы</h1><div class="chips" role="group" aria-label="Фильтр">${[["all","Все"],["paid","Собрать"],["ready","Собраны"],["sent","Отправлены"],["wait","Ждут оплату"]].map(([k,v])=>`<button type="button" data-st="${k}" aria-pressed="${st===k}">${v} · ${c(k)}</button>`).join("")}</div>
+<div style="margin-top:8px">${L.map(o=>`<div class="ord"><input type="checkbox" aria-label="Выбрать заказ ${o.id}" ${o.s==="paid"?"checked":""}><div><b class="num">№ ${o.id}</b> · ${o.c}<br><span class="mut">${o.i}</span></div><span class="pill ${SN[o.s][1]}">${SN[o.s][0]}</span><span class="a">${o.a}</span></div>`).join("")}</div>
+${sel?`<div class="bar"><span>Выбрано: ${sel}</span><button class="btn" type="button">Собраны → накладные</button></div>`:""}`}
+function shop(){return `<h1>Цех</h1><p class="mut">Партия пт, 25 сентября · продажи закрыты в 18:52</p>
+<h2>Сколько варить</h2><div class="tw"><table><thead><tr><th>Вкус</th><th class="r">Всего</th><th class="r">Сб</th><th class="r">Вс</th><th class="r">Готово</th></tr></thead><tbody>
+${F.slice(0,5).map((f,i)=>`<tr><td>${f.n}</td><td class="r"><b>${f.q}</b></td><td class="r">${Math.ceil(f.q/2)}</td><td class="r">${Math.floor(f.q/2)}</td><td class="r"><input type="checkbox" aria-label="Сварено: ${f.n}" ${i<2?"checked":""} style="width:22px;height:22px;accent-color:var(--ac)"></td></tr>`).join("")}</tbody></table></div>
+<p class="note">Кондитер видит только этот экран. Отметка «готово» двигает заказы в сборку.</p>
+<h2>Сборка</h2><div class="card"><div class="row"><span>12 заказов к сборке</span><span class="pill warn">сегодня</span></div><div class="row"><span>Этикетки: состав и «годен до» по дате варки</span><span class="mut">готовы</span></div>
+<div class="acts"><button class="btn" type="button">Печать листа сборки</button><button class="btn o" type="button">Печать этикеток</button></div></div>`}
+function more(){return `<h1>Ещё</h1><div class="links">${["Товары · 38","Клиенты и записи на вкусы","Отчёты","Тексты сообщений","Сайт: FAQ, история, баннер","Команда и роли"].map(x=>`<button type="button"><span>${x}</span><span class="mut">→</span></button>`).join("")}</div>
+<h2>Автоматика</h2>${AUTO.map((a,i)=>`<div class="tg"><span>${a[0]}</span><button class="sw" type="button" role="switch" aria-checked="${a[2]}" data-sw="${i}" aria-label="${a[0]}"></button><p>${a[1]}</p></div>`).join("")}`}
+const V={today,batch,orders,shop,more};
+function render(){document.getElementById("v").innerHTML=V[view]();document.getElementById("tabs").innerHTML=TABS.map(([k,v])=>`<button type="button" data-go="${k}" ${view===k?'aria-current="page"':""}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[k]}</svg>${v}</button>`).join("")}
+document.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;const d=b.dataset;
+ if(d.go){view=d.go;render();window.scrollTo({top:0})}
+ else if(d.q!==undefined){const f=F[+d.q];f.q=Math.max(0,f.q+ +d.d);render()}
+ else if(b.id==="acc"){F.forEach(f=>f.q=f.s);render()}
+ else if(d.st){st=d.st;render()}
+ else if(d.sw!==undefined){AUTO[+d.sw][2]=!AUTO[+d.sw][2];render()}});
+render();setInterval(()=>{if(view==="today")render()},60000);
+</script>
